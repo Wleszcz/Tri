@@ -6,7 +6,7 @@
 #ifndef TRI_NODE_H
 #define TRI_NODE_H
 #include "string"
-#include "List.h"
+
 
 using namespace std;
 
@@ -25,7 +25,7 @@ public:
 
     string find(int letter, const string &word);
 
-    List printAll(List * result, int letter, const string &word);
+    void printAll( int letter, const string &word);
 };
 
 

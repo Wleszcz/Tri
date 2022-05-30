@@ -5,7 +5,7 @@
 
 #include <iostream>
 #include "Node.h"
-#include "List.h"
+
 
 Node::Node() {
     for (int i = 0; i < ALPHABET_SIZE; i++) {
@@ -52,25 +52,29 @@ void Node::add(int letter,const string& word,const string& newTransaltion) {
     }
 }
 
-List Node::printAll(List * result,int letter, const string &word) {
+void Node::printAll(int letter, const string &word) {
     if(word.size()-letter==0){
+        if(this->translation!=""){
+            //cout<<translation<<endl;
+        }
         for (int i = 0; i < ALPHABET_SIZE; ++i) {
             if(array[i]!= nullptr){
                 if(array[i]->translation!=""){
-                    result->addFirst(array[i]->translation);
+
+                    cout<<array[i]->translation<<endl;
                 }
             }
         }
 
         for (int i = 0; i < ALPHABET_SIZE; ++i) {
             if(array[i]!= nullptr){
-                array[i]->printAll(result,letter,word);
+                array[i]->printAll(letter,word);
             }
         }
     }
     else{
         if(array[word[letter]-'a']!= nullptr){
-            this->array[word[letter]-'a']->printAll(result,letter+1,word);
+            this->array[word[letter]-'a']->printAll(letter+1,word);
         }
     }
 }

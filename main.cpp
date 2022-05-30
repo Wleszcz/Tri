@@ -27,13 +27,9 @@ int main() {
             cout << Trie.find(0,word) << endl;
         }
         else if(command=='*'){
-            List * result = new List;
-            Trie.printAll(result,0,word);
-            for (int i = 0; i < result->size()+2; i++) {
-                result->pop_last();
-            }
 
-            result->free_memory();
+            Trie.printAll(0,word);
+
         }
     }
 
